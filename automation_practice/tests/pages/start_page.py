@@ -16,9 +16,9 @@ class StartPage(BasePage):
     @property
     def search_input(self):
         locator = Locator(by=By.ID, value='search_query_top')
-        return BaseElement(driver=self.driver,locator=locator)
+        return BaseElement(driver=self.driver, locator=locator)
 
     @property
     def search_button(self):
-        locator = Locator(by=By.NAME, locator='submit_search')
-        return BaseElement(driver=self.driver,locator=locator)
+        locator = Locator(by=By.NAME, value='submit_search')
+        return BaseElement(driver=self.driver, locator=locator)
