@@ -8,3 +8,7 @@ class BasePage(object):
     def go(self):
         self.driver.get(self.url)
         
+    @property
+    def title(self):
+        title = self.driver.title
+        return title
