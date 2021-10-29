@@ -14,6 +14,9 @@ def browser(request):
 
 @fixture(scope='class')
 def load_home_page(request, browser):
-    home_page = HomePage(driver=browser)
-    home_page.go()
-    yield home_page
+        home_page = HomePage(driver=browser)
+        home_page.go()
+        title = home_page.title
+        yield home_page
+
+

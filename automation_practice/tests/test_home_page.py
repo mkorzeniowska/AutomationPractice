@@ -40,3 +40,5 @@ class HomePageTests:
         assert home_page.signature_text.text == 'Automation Practice Website'
 
 
+
+
