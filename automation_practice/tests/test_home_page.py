@@ -27,6 +27,14 @@ class HomePageTests:
         home_page = load_home_page
         assert home_page.menu_tshirts_tab.text == 'T-SHIRTS'
 
+    def test_popular_tab_is_displayed(self, load_home_page):
+        home_page = load_home_page
+        assert home_page.popular_tab.text == 'POPULAR'
+
+    def test_bestsellers_tab_is_displayed(self, load_home_page):
+        home_page = load_home_page
+        assert home_page.bestsellers_tab.text == 'BEST SELLERS'
+
     def test_signature_text_is_displayed(self, load_home_page):
         home_page = load_home_page
         assert home_page.signature_text.text == 'Automation Practice Website'
