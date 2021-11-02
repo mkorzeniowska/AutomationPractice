@@ -55,3 +55,6 @@ class HomePage(BasePage):
     def bestsellers_tab(self):
         return BaseElement(driver=self.driver, locator=HP.BESTSELLERS_TAB_XPATH)
 
+    @property
+    def my_account_button(self):
+        return BaseElement(driver=self.driver, locator=HP.MY_ACCOUNT_BUTTON)

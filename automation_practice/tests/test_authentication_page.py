@@ -5,12 +5,16 @@ from selenium import webdriver
 
 class AuthenticationPageTests:
 
+    def test_sign_in_page_title(self, browser):
+        login_page = AuthenticationPage(browser)
+        login_page.go()
+        assert login_page.title == 'Login - My Store'
+
     def test_sign_in(self, browser):
         login_page = AuthenticationPage(browser)
         login_page.go()
-        # login_page.login(email='kotytrzy@o2.pl', password='5fEb.5aBbmKN3RK')
-        assert login_page.title == 'Login - My Store'
-
+        login_page.login(email='kotytrzy@o2.pl', password='5fEb.5aBbmKN3RK')
+        assert login_page.title == 'My account - My Store'
 
 
 
