@@ -1,5 +1,6 @@
 from .base_element import BaseElement
 from .base_page import BasePage
+from .authentication_page import AuthenticationPage
 from .elements_locators import HomePageLocators as HP
 
 
@@ -57,4 +58,11 @@ class HomePage(BasePage):
 
     @property
     def my_account_button(self):
-        return BaseElement(driver=self.driver, locator=HP.MY_ACCOUNT_BUTTON)
+        return BaseElement(driver=self.driver, locator=HP.MY_ACCOUNT_BUTTON_ID)
+
+# redirect to authentication page
+    def click_sign_in_button(self):
+        self.sign_in_button.click()
+        authentication_page = AuthenticationPage(self.driver)
+        self.driver.implicitly_wait(10)
+        return authentication_page

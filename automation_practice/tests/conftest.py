@@ -1,6 +1,8 @@
 from pytest import fixture
 from config import Config
 from pages.home_page import HomePage
+from pages.authentication_page import AuthenticationPage
+from pages.registration_page import RegistrationPage
 
 
 @fixture(scope="session")
@@ -13,10 +15,23 @@ def browser(request):
 
 
 @fixture(scope='class')
-def load_home_page(request, browser):
-        home_page = HomePage(driver=browser)
-        home_page.go()
-        title = home_page.title
-        yield home_page
+def get_home_page(request, browser):
+    home_page = HomePage(driver=browser)
+    home_page.go()
+    title = home_page.title
+    yield home_page
+
+@fixture(scope='class')
+def get_authentication_page(request, browser):
+    authentication_page = AuthenticationPage(driver=browser)
+    authentication_page.go()
+    title = authentication_page.title
+    yield authentication_page
 
 
+@fixture(scope='class')
+def get_registration_page(request, browser):
+    get_authentication_page.create_account_button.click()
+    registration_page = RegistrationPage(driver=browser)
+    title = registration_page.title
+    yield registration_page
