@@ -10,13 +10,13 @@ class AuthenticationPageTests:
 
     @mark.smoke
     @mark.signin
-    def test_redirect_from_home_page(self, browser, get_home_page):
+    def test_redirect_from_home_page(self, get_home_page):
         home_page = get_home_page
         authentication_page = home_page.click_sign_in_button()
         assert authentication_page.authentication_header.text == 'AUTHENTICATION'
 
     @mark.signin
-    def test_sign_in_page_title(self, get_authentication_page):
+    def test_authentication_page_title(self, get_authentication_page):
         login_page = get_authentication_page
         assert login_page.title == 'Login - My Store'
 

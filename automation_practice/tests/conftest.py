@@ -3,6 +3,7 @@ from config import Config
 from pages.home_page import HomePage
 from pages.authentication_page import AuthenticationPage
 from pages.registration_page import RegistrationPage
+from pages.contact_page import ContactPage
 
 
 @fixture(scope="session")
@@ -21,6 +22,7 @@ def get_home_page(request, browser):
     title = home_page.title
     yield home_page
 
+
 @fixture(scope='class')
 def get_authentication_page(request, browser):
     authentication_page = AuthenticationPage(driver=browser)
@@ -35,3 +37,11 @@ def get_registration_page(request, browser):
     registration_page = RegistrationPage(driver=browser)
     title = registration_page.title
     yield registration_page
+
+
+@fixture(scope='class')
+def get_contact_page(request, browser):
+    contact_page = ContactPage(driver=browser)
+    contact_page.go()
+    title = contact_page.title
+    yield contact_page

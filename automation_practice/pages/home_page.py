@@ -66,3 +66,11 @@ class HomePage(BasePage):
         authentication_page = AuthenticationPage(self.driver)
         self.driver.implicitly_wait(10)
         return authentication_page
+
+# redirect to contact us page
+    def click_contact_button(self):
+        self.contact_button.click()
+        contact_page = ContactPage(self.driver)
+        self.driver.implicitly_wait(10)
+        return contact_page
+    

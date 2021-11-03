@@ -40,7 +40,7 @@ class AuthenticationPage(BasePage):
         self.forgot_password.click()
         return None
 
-    # create an account form
+    # create an account form:
     @property
     def create_email(self):
         return BaseElement(driver=self.driver, locator=AP.CREATE_ACCOUNT_INPUT_EMAIL_ID)
@@ -50,6 +50,7 @@ class AuthenticationPage(BasePage):
         return BaseElement(driver=self.driver, locator=AP.CREATE_ACCOUNT_BUTTON_CSS)
 
     def create_account(self, email):
+        """ Function for creating an account """
         self.create_email.input_text(email)
         self.create_account_button.click()
         return None
