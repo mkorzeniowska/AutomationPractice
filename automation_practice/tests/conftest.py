@@ -39,7 +39,7 @@ def get_registration_page(request, browser):
     yield registration_page
 
 
-@fixture(scope='class')
+@fixture(scope='function')
 def get_contact_page(request, browser):
     contact_page = ContactPage(driver=browser)
     contact_page.go()

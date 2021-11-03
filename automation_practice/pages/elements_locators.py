@@ -43,7 +43,9 @@ class ContactPage:
     INPUT_FILE_XPATH = Locator(by=By.XPATH, value='//*[text()="No file selected"]')
     CHOOSE_FILE_BUTTON_XPATH = Locator(by=By.XPATH, value='//*[text()="Choose File"]')
     SEND_BUTTON_XPATH = Locator(by=By.XPATH, value='//*[text()="Send"]')
-    MESSAGE_TEXTAREA_ID = Locator(by=By.ID, value='#message')
+    MESSAGE_TEXTAREA_ID = Locator(by=By.ID, value='message')
+    SUCCESS_MESSAGE_CSS = Locator(by=By.CSS_SELECTOR, value='.alert.alert-success')
+    FAILURE_MESSAGE_CSS = Locator(by=By.CSS_SELECTOR, value='div[class="alert alert-danger"] ol li')
 
 
 class AuthenticationPageLocators:

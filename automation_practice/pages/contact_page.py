@@ -38,6 +38,14 @@ class ContactPage(BasePage):
     def send_message_button(self):
         return BaseElement(driver=self.driver, locator=CP.SEND_BUTTON_XPATH)
 
+    @property
+    def success_message(self):
+        return BaseElement(driver=self.driver, locator=CP.SUCCESS_MESSAGE_CSS)
+
+    @property
+    def failure_message(self):
+        return BaseElement(driver=self.driver, locator=CP.FAILURE_MESSAGE_CSS)
+
     def select_subject_heading(self, text):
         """ Function for select subject heading: Customer service or Webmaster. """
         heading = Select(self.subject_heading)
