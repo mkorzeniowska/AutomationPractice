@@ -1,5 +1,4 @@
 from pytest import mark
-
 from selenium.webdriver.support.select import Select
 from pages.contact_page import ContactPage
 
@@ -8,6 +7,7 @@ from pages.contact_page import ContactPage
 class ContactPageTests:
 
     def test_select_subject_heading(self, get_contact_page):
+        """ Message subject header selection test: Webmaster or Customer service. """
         texts = ['Webmaster', 'Customer service']
         contact_page = get_contact_page
         for text in texts:
@@ -16,6 +16,7 @@ class ContactPageTests:
 
     @mark.smoke
     def test_send_message_without_attachment(self, get_contact_page):
+        """ Test sending a message without attaching a file. """
         contact_page = get_contact_page
         contact_page.select_subject_heading('Customer service')
         contact_page.contact_email.input_text('testing@o2.pl')
@@ -26,6 +27,7 @@ class ContactPageTests:
         assert contact_page.success_message.text == expected_result
 
     def test_send_message_without_subject_and_attachment(self, get_contact_page):
+        """ Test sending a message without a selected subject and attaching a file. """
         contact_page = get_contact_page
         contact_page.contact_email.input_text('testing@o2.pl')
         contact_page.order_reference.input_text('123456')
@@ -35,6 +37,7 @@ class ContactPageTests:
         assert contact_page.failure_message.text == expected_result
 
     def test_send_empty_message(self, get_contact_page):
+        """ Test sending a message without any text. """
         contact_page = get_contact_page
         contact_page.contact_email.input_text('testing@o2.pl')
         contact_page.order_reference.input_text('123456')
@@ -43,6 +46,7 @@ class ContactPageTests:
         assert contact_page.failure_message.text == expected_result
 
     def test_send_message_without_email_address(self, get_contact_page):
+        """ Test sending a message without contact email address. """
         contact_page = get_contact_page
         contact_page.order_reference.input_text('123456')
         contact_page.message_text_area.input_text('This is test message')
