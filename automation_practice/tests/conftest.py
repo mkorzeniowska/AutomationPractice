@@ -53,4 +53,7 @@ def get_women_page(request, browser):
     women_page = WomenPage(driver=browser)
     women_page.go()
     title = women_page.title
+    driver = women_page.driver
     yield women_page
+
+

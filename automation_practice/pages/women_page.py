@@ -21,7 +21,7 @@ class WomenPage(BasePage):
 
     @property
     def subcategories_dresses(self):
-        return BaseElement(driver=self.driver, locator=WP.SUBCATEGORIES_DRESSES_CSS)
+        return BaseElement(driver=self.driver, locator=WP.SUBCATEGORIES_DRESSES_XPATH)
 
     @property
     def product_container(self):
@@ -71,8 +71,10 @@ class WomenPage(BasePage):
             if selected_product in product.text:
                 print(product.text)
                 hover.move_to_element(product).perform()
-                # add_to_cart = self.driver.find_element(by=By.XPATH, value='//a[@title="' + selected_product + '"]/../../div[2]/a[1]')
-                add_to_cart = self.driver.find_element(by=By.CSS_SELECTOR, value='[data-id-product="' + product_id + '"].btn')
+                add_to_cart = self.driver.find_element(by=By.CSS_SELECTOR,
+                                                       value='[data-id-product="' + product_id + '"].btn')
                 hover.move_to_element(add_to_cart).click().perform()
                 break
         # self.driver.implicitly_wait(10)
+
+
