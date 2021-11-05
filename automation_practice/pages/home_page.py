@@ -1,6 +1,7 @@
 from .base_element import BaseElement
 from .base_page import BasePage
 from .authentication_page import AuthenticationPage
+from .contact_page import ContactPage
 from .elements_locators import HomePageLocators as HP
 
 
@@ -62,6 +63,7 @@ class HomePage(BasePage):
 
 # redirect to authentication page
     def click_sign_in_button(self):
+        """ Function for clicking the "Sign in" button to redirect to the authentication page. """
         self.sign_in_button.click()
         authentication_page = AuthenticationPage(self.driver)
         self.driver.implicitly_wait(10)
@@ -69,8 +71,8 @@ class HomePage(BasePage):
 
 # redirect to contact us page
     def click_contact_button(self):
+        """ Function for clicking the "Contact Us" button to redirect to the contact page."""
         self.contact_button.click()
         contact_page = ContactPage(self.driver)
         self.driver.implicitly_wait(10)
         return contact_page
-    

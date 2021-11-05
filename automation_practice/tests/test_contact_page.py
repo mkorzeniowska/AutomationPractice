@@ -1,10 +1,15 @@
 from pytest import mark
 from selenium.webdriver.support.select import Select
-from pages.contact_page import ContactPage
 
 
 @mark.contactpage
 class ContactPageTests:
+
+    def test_contact_us_button_click(self, get_home_page):
+        """ Test redirect from home page by clicking the "Contact us" button. """
+        home_page = get_home_page
+        contact_page = home_page.click_contact_button()
+        assert contact_page.title == 'Contact us - My Store'
 
     def test_select_subject_heading(self, get_contact_page):
         """ Message subject header selection test: Webmaster or Customer service. """

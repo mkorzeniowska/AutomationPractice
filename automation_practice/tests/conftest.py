@@ -4,6 +4,7 @@ from pages.home_page import HomePage
 from pages.authentication_page import AuthenticationPage
 from pages.registration_page import RegistrationPage
 from pages.contact_page import ContactPage
+from pages.women_page import WomenPage
 
 
 @fixture(scope="session")
@@ -45,3 +46,11 @@ def get_contact_page(request, browser):
     contact_page.go()
     title = contact_page.title
     yield contact_page
+
+
+@fixture(scope='class')
+def get_women_page(request, browser):
+    women_page = WomenPage(driver=browser)
+    women_page.go()
+    title = women_page.title
+    yield women_page

@@ -2,7 +2,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 from .base_element import BaseElement
 from .base_page import BasePage
-from .elements_locators import ContactPage as CP
+from .elements_locators import ContactPageLocators as CP
 
 
 class ContactPage(BasePage):
