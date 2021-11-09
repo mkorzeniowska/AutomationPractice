@@ -40,22 +40,8 @@ class WomenPage(BasePage):
         return BaseElement(driver=self.driver, locator=WP.VIEW_LIST_CSS)
 
     @property
-    def quick_view(self):
-        return BaseElement(driver=self.driver, locator=WP.QUICK_VIEW_XPATH)
-
-    @property
-    def add_to_cart_button(self):
-        return self.driver.find_element(by=By.XPATH, value='//span[contains(text(), "Add to cart")]')
-
-    @property
     def success_message(self):
         return BaseElement(driver=self.driver, locator=WP.ADDED_MESSAGE_SUCCESS_XPATH)
-
-    @property
-    def cart_empty(self):
-        return BaseElement(driver=self.driver, locator=HP.CART_EMPTY_XPATH)
-
-
 
     def create_product_list(self):
         """ Function to create a list of all products for the Women category. """
@@ -65,6 +51,7 @@ class WomenPage(BasePage):
         return product_list
 
     def add_product_to_cart(self, selected_product, product_id):
+        """ Function for add product to the cart. """
         hover = ActionChains(self.driver)
         products = self.driver.find_elements(by=By.XPATH, value='//div[@class="product-container"]')
         for product in products:
@@ -76,5 +63,32 @@ class WomenPage(BasePage):
                 hover.move_to_element(add_to_cart).click().perform()
                 break
         # self.driver.implicitly_wait(10)
+
+    def get_page_heading_counter_text(self, product_list):
+        """ Function to get product counter from page heading. """
+        products = len(product_list)
+        if products == 1:
+            message = 'There is 1 product.'
+        else:
+            message = 'There are ' + str(products) + ' products.'
+        return message
+
+    def get_quick_view(self, selected_product, product_id):
+        """ Function to get quick view of the selected product. """
+        hover = ActionChains(self.driver)
+        products = self.driver.find_elements(by=By.XPATH, value='//div[@class="product-container"]')
+        for product in products:
+            if selected_product in product.text:
+                hover.move_to_element(product).perform()
+                quick_view = self.driver.find_element(
+                        by=By.XPATH,
+                        value='//a[@class="quick-view"][@href="http://automationpractice.com/index.php?id_product='
+                              + product_id + '&controller=product"]/span')
+                hover.move_to_element(quick_view).click().perform()
+                break
+        self.driver.implicitly_wait(10)
+
+
+
 
 

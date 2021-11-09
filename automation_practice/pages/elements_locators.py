@@ -75,12 +75,9 @@ class WomenPageLocators:
     # Sort by: Price: Lowest first, Price: Highest first, Product name: A to Z, Product name: Z to A, In Stock,
     # Reference: Lowest first, Reference: Highest first,
     SELECT_SORT_ID = Locator(by=By.ID, value='selectProductSort')
-    QUICK_VIEW_XPATH = Locator(by=By.XPATH, value='//div[@class="product-image-container"]/a[2]')
-    ADD_TO_CART_XPATH = Locator(by=By.XPATH, value='//span[contains(text(), "Add to cart")]')
     # Message:
     ADDED_MESSAGE_SUCCESS_XPATH = Locator(by=By.XPATH,
                                           value='//h2[normalize-space()="Product successfully added to your shopping cart"]')
-
     # View
     VIEW_GRID_CSS = Locator(by=By.CSS_SELECTOR, value='.icon-th-large')
     VIEW_LIST_CSS = Locator(by=By.CSS_SELECTOR, value='.icon-th-list')
