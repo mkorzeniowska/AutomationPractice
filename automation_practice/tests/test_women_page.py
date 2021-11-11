@@ -56,5 +56,17 @@ class WomenPageTests:
         women_page.driver.switch_to.default_content()
         women_page.driver.find_element(by=By.XPATH, value='//a[@title="Close"]').click()
 
+    def test_subcategories_tops(self, get_women_page):
+        """ Test tab for subcategories tops. """
+        women_page = get_women_page
+        women_page.click_subcategories_tops()
+        assert women_page.title == 'Tops - My Store'
+        women_page.go()
 
+    def test_subcategories_dresses(self, get_women_page):
+        """ Test tab for subcategories dresses. """
+        women_page = get_women_page
+        women_page.click_subcategories_dresses()
+        assert women_page.title == 'Dresses - My Store'
+        women_page.go()
 

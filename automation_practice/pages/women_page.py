@@ -1,8 +1,6 @@
 from .base_page import BasePage
 from .base_element import BaseElement
 from .elements_locators import WomenPageLocators as WP
-from .elements_locators import HomePageLocators as HP
-from .locator import Locator
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -88,7 +86,11 @@ class WomenPage(BasePage):
                 break
         self.driver.implicitly_wait(10)
 
+    def click_subcategories_tops(self):
+        self.subcategories_tops.click()
 
+    def click_subcategories_dresses(self):
+        self.subcategories_dresses.click()
 
 
 
