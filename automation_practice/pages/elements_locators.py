@@ -56,12 +56,46 @@ class AuthenticationPageLocators:
                                       value='form[id="create-account_form"] h3[class="page-subheading"]')
     CREATE_ACCOUNT_INPUT_EMAIL_ID = Locator(by=By.ID, value='email_create')
     CREATE_ACCOUNT_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='button[id="SubmitCreate"] span')
+    CREATE_ACCOUNT_ALERT_ID = Locator(by=By.ID, value='create_account_error')
 
     REGISTERED_FORM_CSS = Locator(by=By.CSS_SELECTOR, value='form[id="login_form"] h3[class="page-subheading"]')
     REGISTERED_INPUT_EMAIL_ID = Locator(by=By.ID, value='email')
     REGISTERED_INPUT_PASS_ID = Locator(by=By.ID, value='passwd')
     FORGOT_PASSWORD_CSS = Locator(by=By.CSS_SELECTOR, value='a[title="Recover your forgotten password"]')
     SIGN_IN_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='button[id="SubmitLogin"] span')
+
+
+class RegistrationPageLocators:
+
+    # Your personal information:
+    TITLE_MR_ID = Locator(by=By.ID, value='id_gender1')
+    TITLE_MRS_ID = Locator(by=By.ID, value='id_gender2')
+    INPUT_CUSTOMER_FIRSTNAME_ID= Locator(by=By.ID, value='customer_firstname')
+    INPUT_CUSTOMER_LASTNAME_ID = Locator(by=By.ID, value='customer_lastname')
+    INPUT_EMAIL_ID = Locator(by=By.ID, value='email')
+    INPUT_PASSWORD_ID = Locator(by=By.ID, value='passwd')
+    #date of birth:
+    SELECT_DAYS_ID = Locator(by=By.ID, value='days')
+    SELECT_MONTHS_ID = Locator(by=By.ID, value='months')
+    SELECT_YEARS_ID = Locator(by=By.ID, value='years')
+    NEWSLETTER_CHECKBOX_ID = Locator(by=By.ID, value='newsletter')
+    SPECIAL_OFFERS_CHECKBOX_ID = Locator(by=By.ID, value='optin')
+    #Your address:
+    INPUT_FIRSTNAME_ID = Locator(by=By.ID, value='firstname')
+    INPUT_LASTNAME_ID = Locator(by=By.ID, value='lastname')
+    # INPUT_COMPANY_ID = Locator(by=By.ID, value='company')
+    INPUT_ADDRESS1_ID = Locator(by=By.ID, value='address1')
+    # INPUT_ADDRESS2_ID = Locator(by=By.ID, value='address2')
+    INPUT_CITY_ID = Locator(by=By.ID, value='city')
+    SELECT_STATE_ID = Locator(by=By.ID, value='id_state')
+    INPUT_ZIPCODE_ID = Locator(by=By.ID, value='postcode')
+    SELECT_COUNTRY_ID = Locator(by=By.ID, value='id_country')
+    # INPUT_OTHER_INFO_ID = Locator(by=By.ID, value='other')
+    # INPUT_HOME_PHONE_ID = Locator(by=By.ID, value='phone')
+    INPUT_MOBILE_PHONE_ID = Locator(by=By.ID, value='phone_mobile')
+    INPUT_ALIAS_ADDRESS_ID = Locator(by=By.ID, value='alias')
+    REGISTER_BUTTON_ID = Locator(by=By.ID, value='submitAccount')
+    ALERT_CSS = Locator(by=By.CSS_SELECTOR, value='.alert.alert-danger')
 
 
 class WomenPageLocators:

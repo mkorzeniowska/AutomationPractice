@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .base_element import BaseElement
+from .registration_page import RegistrationPage
 from .elements_locators import AuthenticationPageLocators as AP
 
 
@@ -49,9 +50,9 @@ class AuthenticationPage(BasePage):
     def create_account_button(self):
         return BaseElement(driver=self.driver, locator=AP.CREATE_ACCOUNT_BUTTON_CSS)
 
-    def create_account(self, email):
+    def create_account(self, data):
         """ Function for creating an account """
-        self.create_email.input_text(email)
+        self.create_email.input_text(data['email'])
         self.create_account_button.click()
         return None
 
