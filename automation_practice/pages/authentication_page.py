@@ -26,6 +26,14 @@ class AuthenticationPage(BasePage):
         return BaseElement(driver=self.driver, locator=AP.FORGOT_PASSWORD_CSS)
 
     @property
+    def retrieve_password_email(self):
+        return BaseElement(driver=self.driver, locator=AP.RETRIEVE_PASSWORD_EMAIL)
+
+    @property
+    def retrieve_password_button(self):
+        return BaseElement(driver=self.driver, locator=AP.RETRIEVE_PASSWORD_BUTTON)
+
+    @property
     def authentication_header(self):
         return BaseElement(driver=self.driver, locator=AP.AUTHENTICATION_PAGE_HEADING_CSS)
 
@@ -39,6 +47,8 @@ class AuthenticationPage(BasePage):
     def restore_password(self, email):
         """ Function for retrieve a password to account """
         self.forgot_password.click()
+        self.retrieve_password_email.input_text(email)
+        self.retrieve_password_button.click()
         return None
 
     # create an account form:

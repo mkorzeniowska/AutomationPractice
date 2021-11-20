@@ -64,6 +64,9 @@ class AuthenticationPageLocators:
     FORGOT_PASSWORD_CSS = Locator(by=By.CSS_SELECTOR, value='a[title="Recover your forgotten password"]')
     SIGN_IN_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='button[id="SubmitLogin"] span')
 
+    RETRIEVE_PASSWORD_EMAIL = Locator(by=By.ID, value='email')
+    RETRIEVE_PASSWORD_BUTTON = Locator(by=By.XPATH, value='//span[normalize-space()="Retrieve Password"]')
+
 
 class RegistrationPageLocators:
 

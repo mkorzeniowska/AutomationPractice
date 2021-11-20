@@ -1,4 +1,23 @@
 {
-    "email": "kotytrzy@o2.pl",
-    "password": "5fEb.5aBbmKN3RK"
+    "valid_credentials": {
+        "email": "kotytrzy@o2.pl",
+        "password": "5fEb.5aBbmKN3RK",
+        "expected_result": "Welcome to your account."},
+
+    "invalid_email": {
+        "email": "aaaa@bbb",
+        "password": "5fEb.5aBbmKN3RK",
+        "expected_result": "Invalid email address."
+    },
+
+    "invalid_password": {
+        "email": "kotytrzy@o2.pl",
+        "password": "4536hgbfd",
+        "expected_result": "Authentication failed."
+    },
+
+    "restore_password": {
+        "email": "kotytrzy@o2.pl",
+        "confirmation": "A confirmation email has been sent to your address: "
+    }
 }

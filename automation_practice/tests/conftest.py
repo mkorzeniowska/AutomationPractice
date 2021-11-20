@@ -7,6 +7,7 @@ from pages.registration_page import RegistrationPage
 from pages.contact_page import ContactPage
 from pages.women_page import WomenPage
 
+# TO DO: parametrize data_path
 # data for registration tests
 data_path = 'data/test_registration.json'
 # data for login tests
@@ -37,7 +38,7 @@ def get_home_page(request, browser):
     yield home_page
 
 
-@fixture(scope='function')
+@fixture(scope='class')
 def get_authentication_page(request, browser):
     authentication_page = AuthenticationPage(driver=browser)
     authentication_page.go()
