@@ -7,7 +7,10 @@ from pages.registration_page import RegistrationPage
 from pages.contact_page import ContactPage
 from pages.women_page import WomenPage
 
-data_path = 'data/test_data.json'
+# data for registration tests
+data_path = 'data/test_registration.json'
+# data for login tests
+data_path2 = 'data/test_login.json'
 
 
 def load_test_data(path):
@@ -71,7 +74,7 @@ def get_women_page(request, browser):
     yield women_page
 
 
-@fixture(params=load_test_data(data_path), scope='function')
+@fixture(params=load_test_data(data_path2), scope='function')
 def user_test_data(request):
     data = request.param
     yield data

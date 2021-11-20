@@ -21,9 +21,10 @@ class AuthenticationPageTests:
         assert login_page.title == 'Login - My Store'
 
     @mark.signin
-    def test_sign_in(self, get_authentication_page):
+    def test_sign_in(self, get_authentication_page, user_test_data):
         authentication_page = get_authentication_page
-        authentication_page.login(email='kotytrzy@o2.pl', password='5fEb.5aBbmKN3RK')
+        test_data = user_test_data
+        authentication_page.login(email=test_data['email'], password=test_data['password'])
         expected_result = 'Welcome to your account.'
         result = re.search(expected_result, authentication_page.page_source)
         assert result is not None
