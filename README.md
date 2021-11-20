@@ -3,8 +3,8 @@
 #Projekt i wykonanie automatycznych testów kluczowych funkcjonalności wybranej aplikacji webowej za pomocą Selenium WebDriver
 
 Środowisko: 
-Python 3.7
-Selenium + Chrome webdriver
+Python 3.7,
+Selenium + Chrome webdriver,
 Pytest
 
 Uruchamianie testów z terminala (z katalogu projektu):
