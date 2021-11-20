@@ -115,3 +115,7 @@ class WomenPageLocators:
     # View
     VIEW_GRID_CSS = Locator(by=By.CSS_SELECTOR, value='.icon-th-large')
     VIEW_LIST_CSS = Locator(by=By.CSS_SELECTOR, value='.icon-th-list')
+
+class MyAccountPageLocators:
+
+    SIGN_OUT_BUTTON = Locator(by=By.CSS_SELECTOR, value='a[title="Log me out"]')

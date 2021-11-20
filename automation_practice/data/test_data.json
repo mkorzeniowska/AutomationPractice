@@ -1,5 +1,6 @@
 {
-    "title": "Mrs",
+    "Used_email":
+    {"title": "Mrs",
     "firstname": "Anna",
     "lastname": "Smith",
     "email": "annasmith2@gmail.com",
@@ -13,5 +14,22 @@
     "state": "Ohio",
     "country": "United States",
     "phone": "694153885",
-    "alias": "annasmith2@gmail.com"
+    "alias": "annasmith2@gmail.com"},
+
+     "New_email":
+    {"title": "Mrs",
+    "firstname": "Anna",
+    "lastname": "Smith",
+    "email": "annasmith12@gmail.com",
+    "password": "asmith#123",
+    "day_of_birth": "1",
+    "month_of_birth": "1",
+    "year_of_birth": "1985",
+    "address": "70 Delta Ln",
+    "city": "Aberdeen",
+    "zipcode": "45101",
+    "state": "Ohio",
+    "country": "United States",
+    "phone": "694153885",
+    "alias": "annasmith12@gmail.com"}
 }

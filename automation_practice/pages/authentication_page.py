@@ -6,7 +6,7 @@ from .elements_locators import AuthenticationPageLocators as AP
 
 class AuthenticationPage(BasePage):
 
-    url = 'http://automationpractice.com/index.php?controller=authentication&back=my-account'
+    url = 'http://automationpractice.com/index.php?controller=authentication'
 
 # Sign in form:
     @property

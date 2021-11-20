@@ -34,7 +34,7 @@ def get_home_page(request, browser):
     yield home_page
 
 
-@fixture(scope='class')
+@fixture(scope='function')
 def get_authentication_page(request, browser):
     authentication_page = AuthenticationPage(driver=browser)
     authentication_page.go()
@@ -43,11 +43,11 @@ def get_authentication_page(request, browser):
     yield authentication_page
 
 
-@fixture(scope='class')
+@fixture(scope='function')
 def get_registration_page(request, browser, get_authentication_page, user_test_data):
     test_data = user_test_data
     auth_page = get_authentication_page
-    auth_page.create_account(test_data)
+    auth_page.create_account(test_data['New_email'])
     registration_page = RegistrationPage(driver=browser)
     title = registration_page.title
     driver = registration_page.driver
@@ -71,7 +71,7 @@ def get_women_page(request, browser):
     yield women_page
 
 
-@fixture(params=load_test_data(data_path), scope='class')
+@fixture(params=load_test_data(data_path), scope='function')
 def user_test_data(request):
     data = request.param
     yield data

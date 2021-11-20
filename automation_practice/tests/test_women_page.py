@@ -32,6 +32,22 @@ class WomenPageTests:
         women_page.driver.find_element(by=By.CSS_SELECTOR, value='span[title="Close window"]').click()
         assert result == expected_result
 
+    def test_check_one_product_in_cart(self, get_women_page):
+        """ Test of the number of products in the cart. """
+        women_page = get_women_page
+        result = women_page.get_product_quantity_in_cart()
+        assert result == '1 Product'
+
+    def test_check_two_products_in_cart(self, get_women_page):
+        """ Test of the number of products in the cart. """
+        women_page = get_women_page
+        women_page.add_product_to_cart('Blouse', '2')
+        text = women_page.success_message.text
+        # zamienić na expected condition
+        women_page.driver.find_element(by=By.CSS_SELECTOR, value='span[title="Close window"]').click()
+        result = women_page.get_product_quantity_in_cart()
+        assert result == '2 Products'
+
     def test_len_product_list(self, get_women_page):
         """ Test for length of the product list. """
         women_page = get_women_page

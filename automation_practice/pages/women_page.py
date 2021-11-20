@@ -71,6 +71,19 @@ class WomenPage(BasePage):
             message = 'There are ' + str(products) + ' products.'
         return message
 
+    def get_product_quantity_in_cart(self):
+        """ Function to get the quantity of products in the cart. """
+        number_of_products = self.driver.find_element(by=By.XPATH,
+                                                      value='//span[@class="ajax_cart_quantity unvisible"]')
+        if number_of_products.text == '1':
+            product = self.driver.find_element(by=By.XPATH,
+                                               value='//span[@class="ajax_cart_product_txt unvisible"]')
+            result = number_of_products.text + ' ' + product.text
+        else:
+            products = self.driver.find_element(by=By.XPATH, value='//span[@class="ajax_cart_product_txt_s unvisible"]')
+            result = number_of_products.text + ' ' + products.text
+        return result
+
     def get_quick_view(self, selected_product, product_id):
         """ Function to get quick view of the selected product. """
         hover = ActionChains(self.driver)
