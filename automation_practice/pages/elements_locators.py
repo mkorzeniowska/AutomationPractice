@@ -118,7 +118,27 @@ class WomenPageLocators:
     # View
     VIEW_GRID_CSS = Locator(by=By.CSS_SELECTOR, value='.icon-th-large')
     VIEW_LIST_CSS = Locator(by=By.CSS_SELECTOR, value='.icon-th-list')
+    # Window after added product to cart:
+    CLOSE_WINDOW_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='span[title="Close window"]')
+
 
 class MyAccountPageLocators:
 
     SIGN_OUT_BUTTON = Locator(by=By.CSS_SELECTOR, value='a[title="Log me out"]')
+
+
+class CartPageLocators:
+
+    PRODUCT_QUANTITY_XPATH = Locator(by=By.XPATH, value='//input[@name="quantity_3_13_0_0"]')
+    INCREASE_PRODUCT_QTY_XPATH = Locator(by=By.XPATH, value='//i[@class="icon-plus"]')
+    DECREASE_PRODUCT_QTY_XPATH = Locator(by=By.XPATH, value='//i[@class="icon-minus"]')
+    DELETE_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='.icon-trash')
+    UNIT_PRICE_CSS = Locator(by=By.CSS_SELECTOR, value='.cart_unit span.price span.price')
+    TOTAL_PRODUCT_PRICE_ID = Locator(by=By.ID, value='total_product')
+    TOTAL_SHIPPING_ID = Locator(by=By.ID, value='total_shipping')
+    TOTAL_WITHOUT_TAX_ID = Locator(by=By.ID, value='total_price_without_tax')
+    TAX_ID = Locator(by=By.ID, value='total_tax')
+    TOTAL_PRICE = Locator(by=By.ID, value='total_price')
+    CHECKOUT_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='a[class="button btn btn-default standard-checkout button-medium"] span')
+    CONTINUE_SHOPPING_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='a[title="Continue shopping"]')
+    EMPTY_ALERT_CSS = Locator(by=By.CSS_SELECTOR, value='.alert.alert-warning')

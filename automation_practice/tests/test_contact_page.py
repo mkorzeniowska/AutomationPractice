@@ -1,5 +1,4 @@
 from pytest import mark
-from selenium.webdriver.support.select import Select
 
 
 @mark.contactpage

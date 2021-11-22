@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .base_element import BaseElement
 from .elements_locators import WomenPageLocators as WP
+from .elements_locators import HomePageLocators as HP
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -26,6 +27,10 @@ class WomenPage(BasePage):
         return self.driver.find_elements(by=By.XPATH, value='//div[@class="product-container"]')
 
     @property
+    def shopping_cart_button(self):
+        return BaseElement(driver=self.driver, locator=HP.CART_BUTTON_CSS)
+
+    @property
     def sort_dropbox(self):
         return BaseElement(driver=self.driver, locator=WP.SELECT_SORT_ID)
 
@@ -40,6 +45,10 @@ class WomenPage(BasePage):
     @property
     def success_message(self):
         return BaseElement(driver=self.driver, locator=WP.ADDED_MESSAGE_SUCCESS_XPATH)
+
+    @property
+    def close_button(self):
+        return BaseElement(driver=self.driver, locator=WP.CLOSE_WINDOW_BUTTON_CSS)
 
     def create_product_list(self):
         """ Function to create a list of all products for the Women category. """
@@ -105,5 +114,7 @@ class WomenPage(BasePage):
     def click_subcategories_dresses(self):
         self.subcategories_dresses.click()
 
+    def click_cart_button(self):
+        self.shopping_cart_button.click()
 
 
