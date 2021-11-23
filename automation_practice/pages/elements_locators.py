@@ -142,3 +142,10 @@ class CartPageLocators:
     CHECKOUT_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='a[class="button btn btn-default standard-checkout button-medium"] span')
     CONTINUE_SHOPPING_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='a[title="Continue shopping"]')
     EMPTY_ALERT_CSS = Locator(by=By.CSS_SELECTOR, value='.alert.alert-warning')
+    # Order:
+    PROCEED_CHECKOUT_ADDRESS_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='button[name="processAddress"] span')
+    PROCEED_CHECKOUT_SHIPPING_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='button[name="processCarrier"] span')
+    TERMS_OF_SERVICE_ID = Locator(by=By.ID, value='uniform-cgv')
+    PAY_BY_BANK_CSS = Locator(by=By.CSS_SELECTOR, value='a[title="Pay by bank wire"] span')
+    CONFIRM_ORDER_CSS = Locator(by=By.CSS_SELECTOR, value='button[class="button btn btn-default button-medium"] span')
+    CONFIRMATION_TEXT_CSS = Locator(by=By.CSS_SELECTOR, value='p[class="cheque-indent"] strong[class="dark"]')
