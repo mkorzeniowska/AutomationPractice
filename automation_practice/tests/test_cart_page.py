@@ -34,6 +34,6 @@ class CartPageTests:
     def test_remove_product_from_cart(self, get_cart_page):
         expected_result = 'Your shopping cart is empty.'
         cart_page = get_cart_page
-        cart_page.delete_button.click()
+        cart_page.remove_product_from_cart('3')
         result = cart_page.empty_alert.text
         assert result == expected_result
