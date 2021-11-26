@@ -7,6 +7,7 @@ from pages.registration_page import RegistrationPage
 from pages.contact_page import ContactPage
 from pages.women_page import WomenPage
 from pages.cart_page import CartPage
+from selenium import webdriver
 
 # TO DO: parametrize data_path
 # data for registration tests
@@ -22,13 +23,15 @@ def load_test_data(path):
         yield data
 
 
-@fixture(scope="session")
+@fixture(scope="session", params=[webdriver.Chrome, webdriver.Firefox, webdriver.Edge])
 def browser(request):
-    cfg = Config()
-    driver = cfg.driver
-    driver.maximize_window()
-    yield driver
-    driver.close()
+    # cfg = Config()
+    # driver = cfg.driver
+    driver = request.param
+    drvr = driver()
+    drvr.maximize_window()
+    yield drvr
+    drvr.quit()
 
 
 @fixture(scope='class')

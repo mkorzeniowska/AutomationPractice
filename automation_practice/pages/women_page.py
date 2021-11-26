@@ -103,7 +103,7 @@ class WomenPage(BasePage):
                 quick_view = self.driver.find_element(
                         by=By.XPATH,
                         value='//a[@class="quick-view"][@href="http://automationpractice.com/index.php?id_product='
-                           + product_id + '&controller=product"]/span')
+                        + product_id + '&controller=product"]/span')
                 hover.move_to_element(quick_view).click().perform()
                 break
         self.driver.implicitly_wait(10)
