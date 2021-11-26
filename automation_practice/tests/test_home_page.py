@@ -51,6 +51,14 @@ class HomePageTests:
         home_page = get_home_page
         assert home_page.signature_text.text == 'Automation Practice Website'
 
+    @mark.browsertest
+    def test_env(self, env):
+        assert env == 'firefox'
+
+    @mark.browsertest
+    def test_browser(self, get_home_page):
+        home = get_home_page
+        assert home.title == 'My Store'
 
 
 

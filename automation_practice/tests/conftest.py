@@ -23,15 +23,26 @@ def load_test_data(path):
         yield data
 
 
-@fixture(scope="session", params=[webdriver.Chrome, webdriver.Firefox, webdriver.Edge])
-def browser(request):
-    # cfg = Config()
-    # driver = cfg.driver
-    driver = request.param
-    drvr = driver()
-    drvr.maximize_window()
-    yield drvr
-    drvr.quit()
+def pytest_addoption(parser):
+    parser.addoption(
+        "--env",
+        action="store",
+        help="Browser to run tests"
+    )
+
+
+@fixture(scope='session')
+def env(request):
+    return request.config.getoption('env')
+
+
+@fixture(scope='session')
+def browser(request, env):
+    cfg = Config(env)
+    driver = cfg.driver
+    driver.maximize_window()
+    yield driver
+    driver.quit()
 
 
 @fixture(scope='class')
