@@ -3,6 +3,7 @@ from .base_page import BasePage
 from .base_element import BaseElement
 from selenium.webdriver.common.by import By
 
+
 class CartPage(BasePage):
 
     url = 'http://automationpractice.com/index.php?controller=order'
@@ -48,6 +49,7 @@ class CartPage(BasePage):
         return BaseElement(driver=self.driver, locator=CP.EMPTY_ALERT_CSS)
 
     def remove_product_from_cart(self, product_id):
+        """ Function to remove a product from the cart by product id. """
         delete_button = self.driver.find_element(by=By.CSS_SELECTOR,
                                                  value='a[id^="' + product_id + '"]')
         delete_button.click()
@@ -58,7 +60,7 @@ class CartPage(BasePage):
         return total_price
 
     def purchase_product(self):
-        # dodać zaznaczenie checkboxu z adresem
+        """ Function to purchase a product. """
         self.proceed_address_checkout.click()
         self.terms_of_service_checkbox.click()
         self.proceed_carrier_checkout.click()

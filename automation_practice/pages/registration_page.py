@@ -93,12 +93,14 @@ class RegistrationPage(BasePage):
         return BaseElement(driver=self.driver, locator=RP.ALERT_CSS)
 
     def select_title_button(self, title):
+        """ Function to select a title. Values: Mr. or Mrs."""
         if title == 'Mr':
             BaseElement(driver=self.driver, locator=RP.TITLE_MR_ID).click()
         else:
             BaseElement(driver=self.driver, locator=RP.TITLE_MRS_ID).click()
 
     def fill_registration_form(self, data):
+        """ Function to fill a registration form. """
         self.select_title_button(data['title'])
         self.customer_firstname.input_text(data['firstname'])
         self.customer_lastname.input_text(data['lastname'])
@@ -116,6 +118,7 @@ class RegistrationPage(BasePage):
         self.input_alias_address.input_text(data['email'])
 
     def register_account(self, data):
+        """ Function to register an account. """
         self.fill_registration_form(data)
         self.register_button.click()
 

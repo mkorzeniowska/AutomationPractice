@@ -18,6 +18,7 @@ class AuthenticationPageTests:
         login_page = get_authentication_page
         assert login_page.title == 'Login - My Store'
 
+    @mark.smoke
     @mark.signin
     def test_sign_in_with_valid_credentials(self, get_authentication_page, user_test_data):
         authentication_page = get_authentication_page
@@ -28,14 +29,15 @@ class AuthenticationPageTests:
         result = re.search(expected_result, authentication_page.page_source)
         assert result is not None
 
-    # warrning, test dependency:
-    def test_sign_out(self, get_authentication_page, user_test_data):
+    # warning, test dependency, do after sign in:
+    @mark.smoke
+    @mark.signout
+    def test_sign_out(self, get_authentication_page):
         authentication_page = get_authentication_page
         authentication_page.driver.find_element(by=By.CSS_SELECTOR, value='a[title="Log me out"]').click()
         # TO DO: change assertion, test false positive
         assert authentication_page.title == 'Login - My Store'
         assert authentication_page.authentication_header.text == 'AUTHENTICATION'
-
 
     @mark.signin
     def test_sign_in_with_invalid_email(self, get_authentication_page, user_test_data):
@@ -58,6 +60,7 @@ class AuthenticationPageTests:
                                                          value='div[class="alert alert-danger"] ol li')
         assert result.text == expected_result
 
+    @mark.smoke
     def test_restore_password(self, get_authentication_page, user_test_data):
         authentication_page = get_authentication_page
         test_data = user_test_data

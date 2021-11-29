@@ -17,6 +17,7 @@ class CartPageTests:
         cart_page = get_cart_page
         assert cart_page.check_total_price() == '$28.00'
 
+    @mark.smoke
     @mark.purchase_product
     def test_purchase_product_from_cart(self, get_cart_page, user_test_data):
         cart_page = get_cart_page
@@ -30,6 +31,7 @@ class CartPageTests:
         result = cart_page.driver.find_element(by=By.CSS_SELECTOR, value='p[class="cheque-indent"] strong[class="dark"]')
         assert result.text == expected_result
 
+    @mark.smoke
     @mark.remove_product
     def test_remove_product_from_cart(self, get_cart_page):
         expected_result = 'Your shopping cart is empty.'

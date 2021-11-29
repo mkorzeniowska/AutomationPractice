@@ -29,10 +29,6 @@ class HomePage(BasePage):
     def sign_in_button(self):
         return BaseElement(driver=self.driver, locator=HP.SIGN_IN_BUTTON_CSS)
 
-    # @property
-    # def shopping_cart_button(self):
-    #    return BaseElement(driver=self.driver, locator=HP.CART_BUTTON_CSS)
-
     @property
     def shopping_cart_quantity(self):
         return BaseElement(driver=self.driver, locator=HP.CART_EMPTY_XPATH)

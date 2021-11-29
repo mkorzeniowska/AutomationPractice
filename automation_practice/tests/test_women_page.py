@@ -23,7 +23,7 @@ class WomenPageTests:
         view_in_storage = women_page.driver.execute_script('return localStorage.getItem("display")')
         assert json.loads(view_in_storage) == expected_view
 
-
+    @mark.smoke
     def test_add_product_to_cart(self, get_women_page):
         """ Test of adding a product to the cart. """
         expected_result = 'Product successfully added to your shopping cart'

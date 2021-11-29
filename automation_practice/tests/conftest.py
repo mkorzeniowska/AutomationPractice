@@ -17,13 +17,14 @@ data_path2 = 'data/test_login.json'
 
 
 def load_test_data(path):
-    """ Function to load test dana from json file to dict. """
+    """ Function to load test data from json file to dict. """
     with open(path) as test_data:
         data = json.load(test_data)
         yield data
 
 
 def pytest_addoption(parser):
+    """ Function to add option from command line. """
     parser.addoption(
         "--env",
         action="store",
@@ -38,6 +39,7 @@ def env(request):
 
 @fixture(scope='session')
 def browser(request, env):
+    """ Function to initialize the browser."""
     cfg = Config(env)
     driver = cfg.driver
     driver.maximize_window()
@@ -91,6 +93,7 @@ def get_cart_page(request, browser):
 
 @fixture(scope='function')
 def setup_for_cart(request, browser, get_women_page):
+    """ Setup for test the product cart. """
     women_page = get_women_page
     women_page.add_product_to_cart('Printed Dress', '3')
     women_page.close_button.click()

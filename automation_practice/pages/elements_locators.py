@@ -139,7 +139,8 @@ class CartPageLocators:
     TOTAL_WITHOUT_TAX_ID = Locator(by=By.ID, value='total_price_without_tax')
     TAX_ID = Locator(by=By.ID, value='total_tax')
     TOTAL_PRICE = Locator(by=By.ID, value='total_price')
-    CHECKOUT_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='a[class="button btn btn-default standard-checkout button-medium"] span')
+    CHECKOUT_BUTTON_CSS = Locator(by=By.CSS_SELECTOR,
+                                  value='a[class="button btn btn-default standard-checkout button-medium"] span')
     CONTINUE_SHOPPING_BUTTON_CSS = Locator(by=By.CSS_SELECTOR, value='a[title="Continue shopping"]')
     EMPTY_ALERT_CSS = Locator(by=By.CSS_SELECTOR, value='.alert.alert-warning')
     # Order:

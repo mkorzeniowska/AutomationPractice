@@ -1,9 +1,18 @@
-from pages.home_page import HomePage
 from pytest import mark
 
 
 @mark.homepage
 class HomePageTests:
+
+    @mark.browsertest
+    def test_env(self, env):
+        assert env == 'firefox'
+
+    @mark.browsertest
+    def test_browser(self, get_home_page):
+        home = get_home_page
+        assert home.title == 'My Store'
+
     @mark.smoke
     def test_loading_home_page(self, get_home_page):
         """ Home page loading test. Check for correct title. """
@@ -19,7 +28,6 @@ class HomePageTests:
         """ Check if sign in button is displayed. """
         home_page = get_home_page
         assert home_page.sign_in_button.text == 'Sign in'
-
 
     def test_menu_women_tab_is_displayed(self, get_home_page):
         """ Check if Women tab is displayed. """
@@ -51,14 +59,6 @@ class HomePageTests:
         home_page = get_home_page
         assert home_page.signature_text.text == 'Automation Practice Website'
 
-    @mark.browsertest
-    def test_env(self, env):
-        assert env == 'firefox'
-
-    @mark.browsertest
-    def test_browser(self, get_home_page):
-        home = get_home_page
-        assert home.title == 'My Store'
 
 
 
