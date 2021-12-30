@@ -7,7 +7,6 @@ from pages.registration_page import RegistrationPage
 from pages.contact_page import ContactPage
 from pages.women_page import WomenPage
 from pages.cart_page import CartPage
-from selenium import webdriver
 
 # TO DO: parametrize data_path
 # data for registration tests
