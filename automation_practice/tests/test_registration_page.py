@@ -1,6 +1,5 @@
 from pytest import mark
 from selenium.webdriver.common.by import By
-from pages.my_account_page import MyAccountPage as MA
 
 
 @mark.registrationpage
