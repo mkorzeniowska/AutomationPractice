@@ -1,6 +1,5 @@
 from .base_page import BasePage
 from .base_element import BaseElement
-from .registration_page import RegistrationPage
 from .elements_locators import AuthenticationPageLocators as AP
 
 
